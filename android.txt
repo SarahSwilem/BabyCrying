@@ -1,0 +1,3 @@
+title=Babycry
+author=Kivy team
+orientation=portrait

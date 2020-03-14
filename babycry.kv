@@ -1,0 +1,25 @@
+#:kivy 1.9.1
+#:include firebaseloginscreen.kv
+#:import FirebaseLoginScreen firebaseloginscreen.FirebaseLoginScreen
+#:import utils kivy.utils
+FloatLayout:
+      FirebaseLoginScreen:
+         id: firebase_login_screen
+         name: "firebase_login_screen"
+         web_api_key: "AIzaSyAnbPdxzyZxyaDwEt0FR6NaVz6xaY07RC8" # Found in Firebase -> Project Settings -> Web API Key
+         primary_color: utils.get_color_from_hex("#FBFCFC")
+         secondary_color: utils.get_color_from_hex("#2471A3")
+         tertiary_color:  utils.get_color_from_hex("#626266")
+        
+         canvas.before:
+            Rectangle:
+               size: self.size
+               pos: self.pos
+               source: "baby.JPG"
+         on_login_success:
+            # Defining this function lets you program what to do when the
+            # user has logged in (probably you'll want to change screens)!
+            # Get the important user info
+            app.user_localId = self.localId
+            app.user_idToken = self.idToken
+            
